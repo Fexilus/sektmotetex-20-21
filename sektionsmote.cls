@@ -12,6 +12,7 @@
 \RequirePackage{comment}
 \RequirePackage{enumitem}
 \RequirePackage{lastpage}
+\RequirePackage{xspace}
 
 % custom paket för autogenererad bilagslista
 \RequirePackage{bilaga}
@@ -67,3 +68,7 @@
 \renewcommand{\thesection}{\textsection\arabic{section}}
 \renewcommand{\thesubsection}{\textsection\arabic{section}\alph{subsection}}
 \renewcommand{\thesubsubsection}{\textsection\arabic{section}\alph{subsection} \roman{subsubsection}}
+
+
+% Utility commands för protokoll
+\newcommand\tid{\@tid\xspace}
