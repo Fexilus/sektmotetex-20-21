@@ -11,8 +11,20 @@
 
 \gappto{\endbilagor}{\newpage}
 \newcommand{\@bilaga}[2][pages=-]{%
-  \gappto\endbilagor{\includepdf[link,#1]{#2}}%
+  \gappto\endbilagor{\thebilagawatermark\includepdf[link,#1]{#2}}%
 }
 \newcommand\bilaga[3][pages=-]{\item\bookmark[level=2,dest={bilagor/#3.1}]{#2}\hyperlink{bilagor/#3.1}{#2}\@bilaga[#1]{bilagor/#3}}
 
 \newcommand\thebilagor{Förteckning över bilagor}
+
+% Watermarks för bilagor
+\newcommand\thebilagawatermark{}
+\newcommand\addbilagawatermark[1]{\noexpand\renewcommand\thebilagawatermark{%
+  \AddToShipoutPicture{%
+    \AtTextCenter{%
+        \makebox[0pt]{%
+            \scalebox{14}{%
+                \rotatebox[origin=c]{45}{%
+                    \color[gray]{.85}\normalfont #1}}}}}}
+}
+\newcommand\removebilagawatermark{\noexpand\renewcommand\thebilagawatermark{}}
