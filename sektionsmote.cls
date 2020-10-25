@@ -69,6 +69,21 @@
 \renewcommand{\thesubsection}{\textsection\arabic{section}\alph{subsection}}
 \renewcommand{\thesubsubsection}{\textsection\arabic{section}\alph{subsection} \roman{subsubsection}}
 
+% signaturer
+\newcommand{\signatur}[2]{
+\begin{minipage}[t][8em]{0.33\textwidth}
+    \centering
+    \vspace{1.2em}
+    \begin{Form}
+        \digsigfield{\linewidth}{5.5em}{#1}
+    \end{Form}
+    \vspace*{-0.2em}
+    \hrule
+    \vspace{0.5em}
+    #1\\
+    #2
+\end{minipage}
+}
 
 % Utility commands för protokoll
 \newcommand\tid{\@tid\xspace}
