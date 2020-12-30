@@ -15,7 +15,7 @@
 \RequirePackage{xspace}
 
 % custom paket för autogenererad bilagslista
-\RequirePackage{../bilaga} % Temporary fix
+\RequirePackage{bilaga} % Temporary fix
 
 \pagenumbering{arabic}
 
@@ -44,7 +44,7 @@
 
 % sidhuvud/fot
 \pagestyle{fancy}
-\fancyhead[L]{\includegraphics[height=4\baselineskip]{../sektionslogo.png}} % Temporary fix
+\fancyhead[L]{\includegraphics[height=4\baselineskip]{sektionslogo.png}} % Temporary fix
 \cfoot{\thepage\ (\pageref*{LastPage})}
 \newcommand\makeheader{
     \fancyhead[R]{Möte \themote\\\@stitle\\\emph{Fysikteknologsektionen, Chalmers}}
