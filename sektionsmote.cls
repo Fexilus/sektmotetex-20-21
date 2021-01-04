@@ -13,9 +13,10 @@
 \RequirePackage{enumitem}
 \RequirePackage{lastpage}
 \RequirePackage{xspace}
+\RequirePackage{titlesec}
 
 % custom paket för autogenererad bilagslista
-\RequirePackage{bilaga} % Temporary fix
+\RequirePackage{bilaga}
 
 \pagenumbering{arabic}
 
@@ -44,7 +45,7 @@
 
 % sidhuvud/fot
 \pagestyle{fancy}
-\fancyhead[L]{\includegraphics[height=4\baselineskip]{sektionslogo.png}} % Temporary fix
+\fancyhead[L]{\includegraphics[height=4\baselineskip]{sektionslogo.png}}
 \cfoot{\thepage\ (\pageref*{LastPage})}
 \newcommand\makeheader{
     \fancyhead[R]{Möte \themote\\\@stitle\\\emph{Fysikteknologsektionen, Chalmers}}
@@ -87,3 +88,6 @@
 
 % Utility commands för protokoll
 \newcommand\tid{\@tid\xspace}
+
+% Undvik spacing runt \paragraph
+\titlespacing{\paragraph}{0pt}{*3}{\wordsep}
