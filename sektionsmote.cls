@@ -90,4 +90,4 @@
 \newcommand\tid{\@tid\xspace}
 
 % Undvik spacing runt \paragraph
-\titlespacing{\paragraph}{0pt}{*3}{\wordsep}
+\titlespacing{\paragraph}{0pt}{*2.5}{\wordsep}
