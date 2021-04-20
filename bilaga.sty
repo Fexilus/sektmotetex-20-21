@@ -11,7 +11,7 @@
 
 \gappto{\endbilagor}{\newpage}
 \newcommand{\@bilaga}[2][pages=-]{%
-  \gappto\endbilagor{\includepdf[link,#1,pagecommand={\thispagestyle{empty}\addtocounter{page}{-1}}]{#2}}%
+  \gappto\endbilagor{\includepdf[link,#1]{#2}}%
 }
 \newcommand\bilaga[3][pages=-]{\item\bookmark[level=2,dest={bilagor/#3.1}]{#2}\hyperlink{bilagor/#3.1}{#2}\@bilaga[#1]{bilagor/#3}}
 
