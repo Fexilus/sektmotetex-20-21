@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{sektionsmote}[2020/09/26 Sektionsmotesdokument]
+\ProvidesClass{sektionsmote}[2021/04/28 Sektionsmotesdokument]
 
 % dependencies
 \LoadClass{article}
@@ -14,11 +14,19 @@
 \RequirePackage{lastpage}
 \RequirePackage{xspace}
 \RequirePackage{titlesec}
+\RequirePackage{csquotes}
 
 % custom paket för autogenererad bilagslista
 \RequirePackage{bilaga}
 
-\pagenumbering{arabic}
+% options för standardrubriker och dokumenttyper
+\newif\if@isprelim@
+\newif\if@isslutlig@
+\newif\if@isprotokoll@ 
+\DeclareOption{prelim}{\@isprelim@true}
+\DeclareOption{slutlig}{\@isslutlig@true}
+\DeclareOption{protokoll}{\@isprotokoll@true}
+\ProcessOptions\relax%
 
 % huvudrubrik
 \DeclareRobustCommand*{\title}[1]{\gdef\@title{#1}}
@@ -40,8 +48,25 @@
     \textbf{\normalsize Tid: \@tid}\\ 
     \textbf{\normalsize Plats: \@plats}\\[0.5cm]
     \end{center}
-}
-\hypersetup{pdftitle={\@stitle}}
+    \hypersetup{pdftitle={\@stitle}}
+  }
+\pagenumbering{arabic}
+  
+
+% standardrubriker, dokumentspecifikt
+\if@isprelim@%
+  \title{Preliminär föredragningslista till sektionsmötet}
+  \shorttitle{Preliminär föredragningslista}
+\fi%
+\if@isslutlig@%
+  \title{Slutlig föredragningslista till sektionsmötet}
+  \shorttitle{Slutlig föredragningslista}
+\fi%
+\if@isprotokoll@%
+  \RequirePackage{digsig}
+  \title{Protokoll fört vid sektionsmöte}
+  \shorttitle{Sektionsmötesprotokoll}
+\fi%
 
 % sidhuvud/fot
 \pagestyle{fancy}
